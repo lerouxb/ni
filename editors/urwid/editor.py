@@ -224,7 +224,7 @@ class UrwidEditor(Editor):
         self.clipboard_text = text
 
     def paste_from_clipboard(self, view):
-        action = InsertText(self, view, self.clipboard_text)
+        action = InsertText(view, self.clipboard_text)
         view.execute_action(action)
 
     def new_view(self, location=None):
