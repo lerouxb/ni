@@ -1,0 +1,43 @@
+[[default]]
+
+bg:             #232323
+fg:             #ffffff
+sel:            #494763
+current:        #333333
+error:          fg
+keyword:        #cc7833 bold
+number:         #a5c261
+literal:        #a5c261
+symboloperator: fg
+wordoperator:   #cc7833 bold
+comment:        #bc9458 italic
+exception:      #da4939 bold
+other:          fg
+plain:          fg    
+name:           fg
+tag:            #cc7833 bold
+attribute:      #ffc66d bold
+function:       #ffc66d bold
+class:          #ffc66d bold
+punctuation:    fg
+generic:        fg
+builtin:        #da4939 bold
+pseudo:         #ffc66d bold
+self:           fg
+
+guide:          #666666
+
+gutter_bg:      #333333
+gutter_line:    #666666
+gutter_current: #ffff99
+gutter_fifth:   #dddddd
+gutter_plain:   #999999
+
+
+[[CSS]]
+name:           #ffc66d bold
+function:       #ffc66d bold
+class:          #ffc66d bold
+keyword:        #ffffff bold
+builtin:        #ffffff bold
+pseudo:         #ffffff bold

@@ -1,0 +1,47 @@
+[[default]]
+
+bg:             #0b2f20
+fg:             #f8f8f8
+sel:            #487858
+current:        #1a3c2f
+error:          fg
+keyword:        #f2e851 bold
+number:         #ffffff
+literal:        #69b27c
+symboloperator: fg
+wordoperator:   #f2e851 bold
+comment:        #487858 italic
+exception:      fg
+other:          fg
+plain:          fg    
+name:           fg
+function:       #fec756
+class:          #fec756
+tag:            #fec756
+attribute:      #f2e851
+punctuation:    fg
+generic:        fg
+builtin:        #aa550d 
+pseudo:         #aa550d
+self:           fg
+
+guide:          #326342
+
+gutter_bg:      #333333
+gutter_line:    #326342
+gutter_current: #aa550d
+gutter_fifth:   #fec756
+gutter_plain:   fg
+
+[[CSS]]
+name:           #fec756
+function:       #fec756 bold
+class:          #fec756 bold
+keyword:        #f2e851 bold
+builtin:        #f2e851 bold
+pseudo:         #f2e851 bold
+number:         #69b27c
+literal:        #69b27c
+
+[[HTML+Django/Jinja]]
+

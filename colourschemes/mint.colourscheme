@@ -1,0 +1,47 @@
+[[default]]
+
+bg:             #333333
+fg:             #f5f5f5
+sel:            #777799
+current:        #555555
+error:          fg
+keyword:        #ccee0d bold
+number:         #ffcc99
+literal:        #ffcc99
+symboloperator: fg
+wordoperator:   #ccee0d bold
+comment:        #999999 italic    
+exception:      fg
+other:          fg
+plain:          fg    
+name:           fg
+tag:            #cfe5ff
+attribute:      #ccee0d
+function:       #cfe5ff
+class:          #cfe5ff
+punctuation:    fg
+generic:        fg
+builtin:        #ffffff bold 
+pseudo:         #cfe5ff bold
+self:           fg
+
+guide:          #666666
+
+gutter_bg:      #444444
+gutter_line:    #666666
+gutter_current: #cfe5ff
+gutter_fifth:   fg
+gutter_plain:   #aaaaaa
+
+[[CSS]]
+name:           #cfe5ff
+function:       #cfe5ff bold
+class:          #cfe5ff bold
+keyword:        #ccee0d bold
+builtin:        #ccee0d bold
+pseudo:         #ccee0d bold
+number:         #ffcc99
+literal:        #ffcc99
+
+[[HTML+Django/Jinja]]
+
