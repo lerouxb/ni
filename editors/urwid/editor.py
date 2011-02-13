@@ -130,6 +130,8 @@ class UrwidTextWidget(urwid.BoxWidget):
         if event_map.has_key(event):
             ActionClass = event_map[event]
             if issubclass(ActionClass, MoveCursorAction):
+                if not is_select:
+                    self.editor.view.selection = None
                 action = ActionClass(self.editor.view, is_select)
             else:
                 action = ActionClass(self.editor.view)

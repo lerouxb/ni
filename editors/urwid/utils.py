@@ -1,5 +1,6 @@
 from pygments.token import Token
 
+
 def make_statusline(size, left="", center="", right="", leftstyle='statusbar' ,\
   centerstyle='statusbar', rightstyle='statusbar'):
     width = size[0]
@@ -47,6 +48,7 @@ def make_statusline(size, left="", center="", right="", leftstyle='statusbar' ,\
 def get_urwid_lines_attrs((columns, rows), (scrolly, scrollx), tokens, selection):
     """return lines, attrs"""
 
+
     def get_style(ttype):
         if ttype in Token.Text:
             return 'plain'
@@ -92,8 +94,24 @@ def get_urwid_lines_attrs((columns, rows), (scrolly, scrollx), tokens, selection
     text_lines = []
     attrs = []
 
+    log(selection)
+
     if selection:
         selection = selection.get_normalised()
+        document = selection.document
+        sy, sx = document.offset_to_cursor_pos(selection.start)
+        ey, ex = document.offset_to_cursor_pos(selection.end)
+
+    def in_selection(xx, yy):
+        if yy >= sy and yy <= ey:
+            if yy == sy:
+                if xx < sx:
+                    return False
+            if yy == ey:
+                if xx > ex:
+                    return False
+            return True
+        return False
 
     y = scrolly
     for l in lines:
@@ -105,7 +123,7 @@ def get_urwid_lines_attrs((columns, rows), (scrolly, scrollx), tokens, selection
 
         for style, char in l:
             line += char
-            if selection and selection.in_selection((x, y), True):
+            if selection and in_selection(x, y):
                 style = 'sel_'+style
 
             if style != current_style:
@@ -123,9 +141,8 @@ def get_urwid_lines_attrs((columns, rows), (scrolly, scrollx), tokens, selection
 
         # fill up the rest of the line to make sure it is 'columns' wide
         if len(l) < columns:
-            if selection and \
-             (len(l) == 0 and selection.in_selection((0, y), True) or \
-             len(l) != 0 and selection.in_selection((len(l)+1, y), True)):
+            if selection and (len(l) == 0 and in_selection(0, y) or \
+                              len(l) != 0 and in_selection(len(l)+1, y)):
                 style = 'sel_plain'
             else:
                 style = 'plain'
@@ -139,11 +156,7 @@ def get_urwid_lines_attrs((columns, rows), (scrolly, scrollx), tokens, selection
     text_lines = text_lines[:rows]
     attrs = attrs[:rows]
 
-    # fill in the rest of the screen with lines starting with -
-    #for i in xrange(len(text_lines), rows):
-    #    text_lines.append('-' + ' '*(columns-1))
-    #    attrs.append([('empty', 1), ('plain', columns-1)])
-
+    # fill up the rest of the screen if there aren't enough lines
     for i in xrange(len(text_lines), rows):
         text_lines.append(' '*(columns))
         attrs.append([('plain', columns)])
